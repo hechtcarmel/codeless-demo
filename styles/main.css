@@ -1,11 +1,14 @@
 /* Reset and base styles */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --text-color: #333;
-    --background-color: #f5f6fa;
-    --card-background: #ffffff;
+    --primary-color: #1a1b26;
+    --secondary-color: #7aa2f7;
+    --accent-color: #f7768e;
+    --text-color: #a9b1d6;
+    --background-color: #16161e;
+    --card-background: #24283b;
+    --card-hover: #2f334d;
+    --gradient-start: #1a1b26;
+    --gradient-end: #24283b;
 }
 
 * {
@@ -15,7 +18,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
@@ -25,7 +28,12 @@ body {
 header {
     background-color: var(--primary-color);
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background-color: rgba(26, 27, 38, 0.95);
 }
 
 nav {
@@ -37,28 +45,47 @@ nav {
     align-items: center;
 }
 
-nav h1 {
-    color: white;
-    font-size: 1.5rem;
+/* Logo Styles */
+a.logo {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
 }
 
+a.logo:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+a.logo h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Navigation Links */
 nav ul {
     display: flex;
     list-style: none;
     gap: 2rem;
 }
 
-nav a {
-    color: white;
+nav ul a {
+    color: var(--text-color);
     text-decoration: none;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
-nav a:hover,
-nav a.active {
+nav ul a:hover,
+nav ul a.active {
     background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 /* Main content */
@@ -70,16 +97,74 @@ main {
 
 .hero {
     text-align: center;
-    padding: 4rem 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    border-radius: 8px;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+    border-radius: 16px;
     margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(122, 162, 247, 0.1), transparent 70%);
+    pointer-events: none;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+}
+
+/* Scroll Button */
+.scroll-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.scroll-button:hover {
+    background-color: transparent;
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.scroll-button svg {
+    transition: transform 0.3s ease;
+}
+
+.scroll-button:hover svg {
+    transform: translateY(2px);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Planet Grid */
@@ -89,103 +174,99 @@ main {
 
 .featured-planets h2 {
     text-align: center;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
+    margin-bottom: 3rem;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 .planet-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
 
 .planet-card {
     background: var(--card-background);
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
     position: relative;
+    border: 1px solid rgba(122, 162, 247, 0.1);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.planet-card a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .planet-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    background: var(--card-hover);
 }
 
 .planet-card img {
     width: 100%;
-    height: 200px;
+    height: 240px;
     object-fit: cover;
-    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s linear infinite;
-    position: relative;
-    z-index: 1;
+    transition: transform 0.5s ease;
+    aspect-ratio: 16/9;
 }
 
-@keyframes shimmer {
-    to {
-        background-position: 200% 0;
-    }
-}
-
-.planet-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(110deg, transparent 8%, rgba(255, 255, 255, 0.2) 18%, transparent 33%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s linear infinite;
-    z-index: 2;
-    pointer-events: none;
+.planet-card:hover img {
+    transform: scale(1.05);
 }
 
 .planet-card h3 {
-    padding: 1rem;
-    color: var(--primary-color);
-    position: relative;
-    z-index: 3;
+    padding: 1.5rem 1.5rem 0.5rem;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .planet-card p {
-    padding: 0 1rem 1rem;
-    position: relative;
-    z-index: 3;
+    padding: 0 1.5rem 1.5rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    flex-grow: 1;
 }
 
 /* Buttons */
 .cta-button {
     display: inline-block;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     background-color: var(--accent-color);
-    color: white;
+    color: var(--primary-color);
     text-decoration: none;
-    border-radius: 4px;
-    margin: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem;
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
-    width: calc(100% - 2rem);
+    width: calc(100% - 3rem);
     position: relative;
-    z-index: 3;
+    overflow: hidden;
 }
 
 .planet-card .cta-button {
-    margin: 1rem;
+    margin: 0 1.5rem 1.5rem;
     display: block;
-    width: calc(100% - 2rem);
+    width: calc(100% - 3rem);
+    text-align: center;
 }
 
 .cta-button:hover {
-    background-color: #c0392b;
+    background-color: #e85d6f;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(247, 118, 142, 0.3);
 }
 
 .cta-button:active {
@@ -195,26 +276,11 @@ main {
 /* Footer */
 footer {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--text-color);
     text-align: center;
-    padding: 1rem;
-    margin-top: 3rem;
-}
-
-/* Logo Styles */
-.logo {
-    text-decoration: none;
-    color: white;
-    transition: opacity 0.3s ease;
-}
-
-.logo:hover {
-    opacity: 0.9;
-}
-
-.logo h1 {
-    margin: 0;
-    font-size: 1.5rem;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(122, 162, 247, 0.1);
 }
 
 /* Responsive Design */
@@ -231,10 +297,30 @@ footer {
     }
 
     .hero h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
     }
 
     .planet-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero, .planet-card {
+    animation: fadeIn 0.6s ease-out forwards;
 } 

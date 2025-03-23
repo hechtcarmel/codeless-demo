@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cosmic Real Estate - Your premier destination for purchasing celestial properties. Explore Mars, Jupiter, and Saturn properties.">
+    <meta name="keywords" content="space real estate, mars property, jupiter property, saturn property, cosmic real estate">
+    <meta name="author" content="Cosmic Real Estate">
+    <meta property="og:title" content="Cosmic Real Estate - Your Gateway to the Stars">
+    <meta property="og:description" content="Your premier destination for purchasing celestial properties">
+    <meta property="og:image" content="images/mars.jpg">
+    <meta property="og:url" content="https://cosmicrealestate.com">
     <title>Cosmic Real Estate - Your Gateway to the Stars</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Taboola Pixel Code -->
     <script type='text/javascript'>
       window._tfa = window._tfa || [];
@@ -37,32 +48,44 @@
 
     <main>
         <section class="hero">
-            <h2>Welcome to Cosmic Real Estate</h2>
-            <p>Your premier destination for purchasing celestial properties</p>
+            <h2>Your Gateway to the Stars</h2>
+            <p>Discover the future of real estate beyond Earth. Explore our exclusive collection of celestial properties.</p>
+            <a href="#featured-planets" class="scroll-button">
+                <span>Explore Properties</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </section>
 
-        <section class="featured-planets">
+        <section id="featured-planets" class="featured-planets">
             <h2>Featured Properties</h2>
             <div class="planet-grid">
                 <article class="planet-card">
-                    <img src="images/mars.jpg" alt="Mars">
-                    <h3>Mars</h3>
-                    <p>The Red Planet - Your next home away from Earth</p>
-                    <a href="pages/mars.html" class="cta-button">View Details</a>
+                    <a href="pages/mars.html">
+                        <img src="images/mars.jpg" alt="Mars - The Red Planet" loading="eager">
+                        <h3>Mars</h3>
+                        <p>The Red Planet - Your next home away from Earth. Experience the thrill of living on Mars with our premium properties.</p>
+                        <span class="cta-button">View Details</span>
+                    </a>
                 </article>
 
                 <article class="planet-card">
-                    <img src="images/jupiter.jpg" alt="Jupiter">
-                    <h3>Jupiter</h3>
-                    <p>The Giant Planet - A gas giant with endless possibilities</p>
-                    <a href="pages/jupiter.html" class="cta-button">View Details</a>
+                    <a href="pages/jupiter.html">
+                        <img src="images/jupiter.jpg" alt="Jupiter - The Giant Planet" loading="eager">
+                        <h3>Jupiter</h3>
+                        <p>The Giant Planet - A gas giant with endless possibilities. Discover unique floating properties in Jupiter's atmosphere.</p>
+                        <span class="cta-button">View Details</span>
+                    </a>
                 </article>
 
                 <article class="planet-card">
-                    <img src="images/saturn.jpg" alt="Saturn">
-                    <h3>Saturn</h3>
-                    <p>The Ringed Planet - Beauty beyond imagination</p>
-                    <a href="pages/saturn.html" class="cta-button">View Details</a>
+                    <a href="pages/saturn.html">
+                        <img src="images/saturn.jpg" alt="Saturn - The Ringed Planet" loading="eager">
+                        <h3>Saturn</h3>
+                        <p>The Ringed Planet - Beauty beyond imagination. Live among the most spectacular rings in our solar system.</p>
+                        <span class="cta-button">View Details</span>
+                    </a>
                 </article>
             </div>
         </section>
