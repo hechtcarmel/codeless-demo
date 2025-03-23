@@ -39,10 +39,52 @@ function updateLinkPaths() {
     });
 }
 
+// Update all CSS link hrefs with the correct base path
+function updateCssPaths() {
+    const basePath = getBasePath();
+    const cssLinks = document.querySelectorAll('link[rel="stylesheet"]');
+    
+    cssLinks.forEach(link => {
+        const currentHref = link.getAttribute('href');
+        if (currentHref.startsWith('../')) {
+            // For pages in subdirectories
+            link.href = `${basePath}/${currentHref.replace('../', '')}`;
+        } else if (!currentHref.startsWith('/')) {
+            // For root level pages
+            link.href = `${basePath}/${currentHref}`;
+        }
+    });
+}
+
+// Update all script srcs with the correct base path
+function updateScriptPaths() {
+    const basePath = getBasePath();
+    const scripts = document.querySelectorAll('script[src]');
+    
+    scripts.forEach(script => {
+        const currentSrc = script.getAttribute('src');
+        if (currentSrc.startsWith('../')) {
+            // For pages in subdirectories
+            script.src = `${basePath}/${currentSrc.replace('../', '')}`;
+        } else if (!currentSrc.startsWith('/')) {
+            // For root level pages
+            script.src = `${basePath}/${currentSrc}`;
+        }
+    });
+}
+
 // Initialize path updates
-document.addEventListener('DOMContentLoaded', () => {
+function initializePaths() {
     updateImagePaths();
     updateLinkPaths();
-});
+    updateCssPaths();
+    updateScriptPaths();
+}
 
-export { getBasePath, updateImagePaths, updateLinkPaths }; 
+// Run immediately
+initializePaths();
+
+// Also run when DOM is loaded to catch any dynamically added elements
+document.addEventListener('DOMContentLoaded', initializePaths);
+
+export { getBasePath, initializePaths }; 
