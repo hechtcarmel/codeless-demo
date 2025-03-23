@@ -1,153 +1,100 @@
-import { PLANET_DATA } from './constants.js';
-import { handleFormSubmit } from './utils.js';
+import { PLANET_DATA, FORM_VALIDATION } from './constants.js';
 
-// Get current planet from URL
-const currentPlanet = window.location.pathname.split('/').pop().replace('.html', '');
-const planetData = PLANET_DATA[currentPlanet];
+// Get URL parameters to determine which planet to show
+const urlParams = new URLSearchParams(window.location.search);
+const planetId = urlParams.get('planet') || 'mars'; // Default to Mars if no planet specified
 
-// Form validation and submission handling
-document.addEventListener('DOMContentLoaded', () => {
-    // Image loading handling
-    const planetImages = document.querySelectorAll('.planet-hero img');
-    planetImages.forEach(img => {
-        // Set initial loading state
-        img.classList.add('loading');
-        
-        // If image is already loaded (from cache), handle it immediately
-        if (img.complete) {
-            img.classList.remove('loading');
-            img.classList.add('loaded');
-        } else {
-            // Handle successful load
-            img.addEventListener('load', () => {
-                img.classList.remove('loading');
-                img.classList.add('loaded');
-            }, { once: true });
-            
-            // Handle load error
-            img.addEventListener('error', () => {
-                img.classList.remove('loading');
-                img.classList.add('error');
-                console.error(`Failed to load image: ${img.src}`);
-            }, { once: true });
-        }
-    });
+// Get the planet data
+const planet = PLANET_DATA[planetId];
 
-    // Form handling
-    const purchaseForm = document.getElementById('purchaseForm');
-    if (purchaseForm) {
-        purchaseForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(purchaseForm);
-            const purchaseData = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                payment: formData.get('payment'),
-                planet: document.querySelector('.planet-hero h2').textContent,
-                price: document.querySelector('.price').textContent
-            };
-            
-            // Validate form data
-            if (!validateForm(purchaseData)) {
-                return;
-            }
-            
-            // Process purchase (simulated)
-            processPurchase(purchaseData);
-        });
-    }
+// Update the page title
+document.title = `${planet.name} - Planet Details`;
 
-    if (planetData) {
-        // Add hover effect to features
-        const features = document.querySelectorAll('.features li');
-        features.forEach(feature => {
-            feature.addEventListener('mouseenter', () => {
-                feature.style.transform = 'translateX(10px)';
-                feature.style.transition = 'transform 0.3s ease';
-            });
-            
-            feature.addEventListener('mouseleave', () => {
-                feature.style.transform = 'translateX(0)';
-            });
-        });
+// Get DOM elements
+const planetImage = document.getElementById('planetImage');
+const planetName = document.getElementById('planetName');
+const planetPrice = document.getElementById('planetPrice');
+const planetDescription = document.getElementById('planetDescription');
+const planetFeatures = document.getElementById('planetFeatures');
+const purchaseForm = document.getElementById('purchaseForm');
+
+// Get modal elements
+const successModal = document.getElementById('successModal');
+const modalPlanetName = document.getElementById('modalPlanetName');
+const modalEmail = document.getElementById('modalEmail');
+const modalClose = document.querySelector('.modal-close');
+
+// Populate the HTML with planet data
+planetName.textContent = planet.name;
+planetPrice.textContent = planet.price;
+planetDescription.textContent = planet.description;
+
+// Create and append features list
+planet.features.forEach(feature => {
+    const li = document.createElement('li');
+    li.textContent = feature;
+    planetFeatures.appendChild(li);
+});
+
+// Handle image loading
+planetImage.addEventListener('load', () => {
+    planetImage.classList.remove('loading');
+    planetImage.classList.add('loaded');
+});
+
+planetImage.addEventListener('error', () => {
+    planetImage.classList.remove('loading');
+    planetImage.classList.add('error');
+});
+
+planetImage.src = planet.imageUrl;
+
+// Show modal function
+function showModal(planetName, email) {
+    modalPlanetName.textContent = planetName;
+    modalEmail.textContent = email;
+    successModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+}
+
+// Hide modal function
+function hideModal() {
+    successModal.style.display = 'none';
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Close modal when clicking the close button
+modalClose.addEventListener('click', hideModal);
+
+// Close modal when clicking outside
+successModal.addEventListener('click', (e) => {
+    if (e.target === successModal) {
+        hideModal();
     }
 });
 
-/**
- * Validates the purchase form data
- * @param {Object} data - The form data to validate
- * @returns {boolean} - Whether the form data is valid
- */
-function validateForm(data) {
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
-        showError('Please enter a valid email address');
-        return false;
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && successModal.style.display === 'flex') {
+        hideModal();
     }
-    
-    return true;
-}
+});
 
-/**
- * Processes the purchase (simulated)
- * @param {Object} data - The validated purchase data
- */
-function processPurchase(data) {
-    // Show loading state
-    const submitButton = document.querySelector('.cta-button');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Processing...';
-    submitButton.disabled = true;
+// Form validation and submission handling
+purchaseForm.addEventListener('submit', (e) => {
+    e.preventDefault();
     
-    // Simulate API call
-    setTimeout(() => {
-        // Show success message
-        showSuccess(`Thank you for your interest in purchasing ${data.planet}! We will contact you at ${data.email} to complete the transaction.`);
-        
-        // Reset form
-        document.getElementById('purchaseForm').reset();
-        
-        // Reset button
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-    }, 1500);
-}
+    const email = document.getElementById('email').value;
 
-/**
- * Shows an error message to the user
- * @param {string} message - The error message to display
- */
-function showError(message) {
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
-    
-    const form = document.getElementById('purchaseForm');
-    form.insertBefore(errorDiv, form.firstChild);
-    
-    // Remove error message after 3 seconds
-    setTimeout(() => {
-        errorDiv.remove();
-    }, 3000);
-}
+    // Validate email
+    if (!FORM_VALIDATION.email.pattern.test(email)) {
+        alert(FORM_VALIDATION.email.message);
+        return;
+    }
 
-/**
- * Shows a success message to the user
- * @param {string} message - The success message to display
- */
-function showSuccess(message) {
-    const successDiv = document.createElement('div');
-    successDiv.className = 'success-message';
-    successDiv.textContent = message;
+    // Show success modal
+    showModal(planet.name, email);
     
-    const form = document.getElementById('purchaseForm');
-    form.insertBefore(successDiv, form.firstChild);
-    
-    // Remove success message after 5 seconds
-    setTimeout(() => {
-        successDiv.remove();
-    }, 5000);
-} 
+    // Reset form
+    purchaseForm.reset();
+}); 

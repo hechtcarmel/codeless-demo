@@ -23,6 +23,190 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border-radius: 24px;
+            margin: 2rem auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(122, 162, 247, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .scroll-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .scroll-button svg {
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-button:hover svg {
+            transform: translateY(2px);
+        }
+
+        .featured-planets {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .featured-planets h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .featured-planets h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .planet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .planet-card {
+            background: var(--card-background);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(122, 162, 247, 0.1);
+        }
+
+        .planet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .planet-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .planet-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .planet-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .planet-card h3 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        .planet-card p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin: 0 1.5rem 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(122, 162, 247, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .featured-planets {
+                padding: 0 1rem;
+            }
+
+            .featured-planets h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
     <!-- Taboola Pixel Code -->
     <script type='text/javascript'>
       window._tfa = window._tfa || [];
@@ -46,9 +230,9 @@
             </a>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="pages/mars.html">Mars 👑</a></li>
-                <li><a href="pages/jupiter.html">Jupiter</a></li>
-                <li><a href="pages/saturn.html">Saturn</a></li>
+                <li><a href="planet.html?planet=mars">Mars 👑</a></li>
+                <li><a href="planet.html?planet=jupiter">Jupiter</a></li>
+                <li><a href="planet.html?planet=saturn">Saturn</a></li>
             </ul>
         </nav>
     </header>
@@ -69,7 +253,7 @@
             <h2>Featured Properties</h2>
             <div class="planet-grid">
                 <article class="planet-card">
-                    <a href="pages/mars.html">
+                    <a href="planet.html?planet=mars">
                         <img src="images/mars.jpg" alt="Mars - The Red Planet" loading="eager">
                         <h3>Mars 👑</h3>
                         <p>The Red Planet - Your next home away from Earth. Experience the thrill of living on Mars with our premium properties.</p>
@@ -78,7 +262,7 @@
                 </article>
 
                 <article class="planet-card">
-                    <a href="pages/jupiter.html">
+                    <a href="planet.html?planet=jupiter">
                         <img src="images/jupiter.jpg" alt="Jupiter - The Giant Planet" loading="eager">
                         <h3>Jupiter</h3>
                         <p>The Giant Planet - A gas giant with endless possibilities. Discover unique floating properties in Jupiter's atmosphere.</p>
@@ -87,7 +271,7 @@
                 </article>
 
                 <article class="planet-card">
-                    <a href="pages/saturn.html">
+                    <a href="planet.html?planet=saturn">
                         <img src="images/saturn.jpg" alt="Saturn - The Ringed Planet" loading="eager">
                         <h3>Saturn</h3>
                         <p>The Ringed Planet - Beauty beyond imagination. Live among the most spectacular rings in our solar system.</p>

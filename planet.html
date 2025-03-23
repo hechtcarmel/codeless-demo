@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cosmic Real Estate - Your premier destination for purchasing celestial properties. Explore Mars, Jupiter, and Saturn properties.">
+    <meta name="keywords" content="space real estate, mars property, jupiter property, saturn property, cosmic real estate">
+    <meta name="author" content="Cosmic Real Estate">
+    <meta property="og:title" content="Cosmic Real Estate - Your Gateway to the Stars">
+    <meta property="og:description" content="Your premier destination for purchasing celestial properties">
+    <meta property="og:image" content="images/mars.jpg">
+    <meta property="og:url" content="https://cosmicrealestate.com">
+    <title>Planet Details - Cosmic Real Estate</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/planet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .planet-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .planet-header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--text-color);
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .planet-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(122, 162, 247, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+        .planet-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .planet-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        .planet-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .planet-details {
+            padding: 2rem;
+            background: var(--card-background);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .price {
+            font-size: 2rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        .planet-features {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+        .planet-features li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: var(--background-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+        @media (max-width: 768px) {
+            .planet-content {
+                grid-template-columns: 1fr;
+            }
+            .planet-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        .modal-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .modal-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .modal-close:hover {
+            opacity: 1;
+        }
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <h1>Cosmic Real Estate</h1>
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="planet.html?planet=mars">Mars 👑</a></li>
+                <li><a href="planet.html?planet=jupiter">Jupiter</a></li>
+                <li><a href="planet.html?planet=saturn">Saturn</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="planet-detail">
+            <div class="planet-hero">
+                <img id="planetImage" alt="Planet" class="loading">
+                <h2 id="planetName"></h2>
+                <div class="price" id="planetPrice"></div>
+            </div>
+            <div class="planet-info">
+                <div class="description">
+                    <h3>About This Planet</h3>
+                    <p id="planetDescription"></p>
+                </div>
+                <div class="features">
+                    <h3>Key Features</h3>
+                    <ul id="planetFeatures"></ul>
+                </div>
+                <div class="purchase-form">
+                    <h3>Make an Offer</h3>
+                    <form id="purchaseForm">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <button type="submit" class="cta-button button-hover">Submit Offer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add modal overlay -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h3>Thank You!</h3>
+            <p>We've received your interest in <span id="modalPlanetName"></span>. We'll contact you shortly at <span id="modalEmail"></span> to discuss the details.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cosmic Real Estate. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="js/planet.js"></script>
+</body>
+</html> 

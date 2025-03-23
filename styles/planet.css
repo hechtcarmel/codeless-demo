@@ -1,18 +1,35 @@
 .planet-detail {
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: 2rem auto;
     background: var(--card-background);
-    border-radius: 16px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(122, 162, 247, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planet-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .planet-hero {
     position: relative;
-    height: 300px;
+    height: 400px;
     overflow: hidden;
     background: var(--primary-color);
+}
+
+.planet-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+    z-index: 1;
 }
 
 .planet-hero img {
@@ -20,7 +37,8 @@
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(1.1);
 }
 
 .planet-hero img.loading {
@@ -32,6 +50,7 @@
 
 .planet-hero img.loaded {
     opacity: 1;
+    transform: scale(1);
     background: none;
     animation: none;
 }
@@ -41,82 +60,92 @@
     background: #2c3e50;
 }
 
-.planet-hero::before {
-    display: none;
-}
-
 .planet-hero h2 {
     position: absolute;
-    bottom: 40px;
+    bottom: 100px;
     left: 0;
     right: 0;
     text-align: center;
     color: white;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     opacity: 0;
     animation: fadeIn 0.5s ease-out forwards;
     animation-delay: 0.3s;
+    z-index: 2;
 }
 
 .planet-hero .price {
     position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     opacity: 0;
     animation: fadeIn 0.5s ease-out forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.5s;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+    white-space: nowrap;
 }
 
 .planet-info {
-    padding: 1.5rem;
+    padding: 2.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 2.5rem;
 }
 
 .description {
+    grid-column: 1;
+}
+
+.features {
     grid-column: 1 / -1;
 }
 
-.price-label {
-    grid-column: 1 / -1;
-    text-align: left;
-    padding: 0.5rem;
-    color: var(--secondary-color);
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-    background: rgba(122, 162, 247, 0.1);
-    border-radius: 8px;
-}
-
-.price-label .amount {
-    font-weight: 600;
-}
-
-.price-label .label {
-    display: none;
+.purchase-form {
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .description h3,
 .features h3,
 .purchase-form h3 {
     color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.description h3::after,
+.features h3::after,
+.purchase-form h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
 }
 
 .description p {
     margin-bottom: 0;
-    line-height: 1.5;
+    line-height: 1.8;
     color: var(--text-color);
+    font-size: 1.1rem;
 }
 
 .features ul {
@@ -125,45 +154,143 @@
 }
 
 .features li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(122, 162, 247, 0.1);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background: var(--background-color);
+    border-radius: 12px;
     color: var(--text-color);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.features li:last-child {
-    border-bottom: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
 }
 
 .features li:hover {
-    background-color: rgba(122, 162, 247, 0.1);
-    transform: translateX(5px);
+    transform: translateX(10px);
+    background: rgba(122, 162, 247, 0.1);
+}
+
+.purchase-form {
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid rgba(122, 162, 247, 0.2);
+    border-radius: 8px;
+    background: var(--card-background);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(122, 162, 247, 0.1);
+}
+
+.cta-button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(122, 162, 247, 0.3);
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+}
+
+.cta-button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .planet-hero {
-        height: 250px;
+        height: 300px;
     }
 
     .planet-hero h2 {
-        font-size: 2rem;
-        bottom: 30px;
+        font-size: 2.5rem;
+        bottom: 60px;
     }
 
     .planet-hero .price {
-        font-size: 1.1rem;
-        bottom: 8px;
+        font-size: 1.4rem;
+        bottom: 20px;
     }
 
     .planet-info {
         grid-template-columns: 1fr;
-        padding: 1rem;
-        gap: 1.5rem;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .description, .features, .purchase-form {
+        grid-column: 1 / -1;
     }
 
     .purchase-form {
-        padding: 1rem;
+        grid-row: auto;
+        padding: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
