@@ -1,6 +1,6 @@
+import { getBasePath } from './pathUtils.js';
+
 // Base path configuration
-const BASE_PATH = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-    ? '' // Empty for local development
-    : '/codeless-demo'; // For GitHub Pages
+const BASE_PATH = getBasePath();
 
 export { BASE_PATH }; 
