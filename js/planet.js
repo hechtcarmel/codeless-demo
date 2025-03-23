@@ -5,48 +5,36 @@ import { handleFormSubmit } from './utils.js';
 const currentPlanet = window.location.pathname.split('/').pop().replace('.html', '');
 const planetData = PLANET_DATA[currentPlanet];
 
-if (planetData) {
-    // Form handling
-    const purchaseForm = document.querySelector('.purchase-form');
-    if (purchaseForm) {
-        purchaseForm.addEventListener('submit', (event) => handleFormSubmit(event, planetData.name));
-    }
-
-    // Add hover effect to features
-    const features = document.querySelectorAll('.features li');
-    features.forEach(feature => {
-        feature.addEventListener('mouseenter', () => {
-            feature.style.transform = 'translateX(10px)';
-            feature.style.transition = 'transform 0.3s ease';
-        });
-        
-        feature.addEventListener('mouseleave', () => {
-            feature.style.transform = 'translateX(0)';
-        });
-    });
-}
-
-// Image loading handling
-const planetImages = document.querySelectorAll('.planet-hero img');
-planetImages.forEach(img => {
-    img.classList.add('loading');
-    
-    img.addEventListener('load', () => {
-        img.classList.remove('loading');
-        img.classList.add('loaded');
-    });
-    
-    img.addEventListener('error', () => {
-        img.classList.remove('loading');
-        img.classList.add('error');
-        console.error(`Failed to load image: ${img.src}`);
-    });
-});
-
 // Form validation and submission handling
 document.addEventListener('DOMContentLoaded', () => {
+    // Image loading handling
+    const planetImages = document.querySelectorAll('.planet-hero img');
+    planetImages.forEach(img => {
+        // Set initial loading state
+        img.classList.add('loading');
+        
+        // If image is already loaded (from cache), handle it immediately
+        if (img.complete) {
+            img.classList.remove('loading');
+            img.classList.add('loaded');
+        } else {
+            // Handle successful load
+            img.addEventListener('load', () => {
+                img.classList.remove('loading');
+                img.classList.add('loaded');
+            }, { once: true });
+            
+            // Handle load error
+            img.addEventListener('error', () => {
+                img.classList.remove('loading');
+                img.classList.add('error');
+                console.error(`Failed to load image: ${img.src}`);
+            }, { once: true });
+        }
+    });
+
+    // Form handling
     const purchaseForm = document.getElementById('purchaseForm');
-    
     if (purchaseForm) {
         purchaseForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -68,6 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Process purchase (simulated)
             processPurchase(purchaseData);
+        });
+    }
+
+    if (planetData) {
+        // Add hover effect to features
+        const features = document.querySelectorAll('.features li');
+        features.forEach(feature => {
+            feature.addEventListener('mouseenter', () => {
+                feature.style.transform = 'translateX(10px)';
+                feature.style.transition = 'transform 0.3s ease';
+            });
+            
+            feature.addEventListener('mouseleave', () => {
+                feature.style.transform = 'translateX(0)';
+            });
         });
     }
 });
