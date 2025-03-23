@@ -81,22 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
  * @returns {boolean} - Whether the form data is valid
  */
 function validateForm(data) {
-    // Name validation
-    if (data.name.length < 2) {
-        showError('Please enter a valid name');
-        return false;
-    }
-    
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
         showError('Please enter a valid email address');
-        return false;
-    }
-    
-    // Payment method validation
-    if (!data.payment) {
-        showError('Please select a payment method');
         return false;
     }
     
