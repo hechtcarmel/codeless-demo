@@ -1,3 +1,31 @@
+import { PLANET_DATA } from './constants.js';
+import { handleFormSubmit } from './utils.js';
+
+// Get current planet from URL
+const currentPlanet = window.location.pathname.split('/').pop().replace('.html', '');
+const planetData = PLANET_DATA[currentPlanet];
+
+if (planetData) {
+    // Form handling
+    const purchaseForm = document.querySelector('.purchase-form');
+    if (purchaseForm) {
+        purchaseForm.addEventListener('submit', (event) => handleFormSubmit(event, planetData.name));
+    }
+
+    // Add hover effect to features
+    const features = document.querySelectorAll('.features li');
+    features.forEach(feature => {
+        feature.addEventListener('mouseenter', () => {
+            feature.style.transform = 'translateX(10px)';
+            feature.style.transition = 'transform 0.3s ease';
+        });
+        
+        feature.addEventListener('mouseleave', () => {
+            feature.style.transform = 'translateX(0)';
+        });
+    });
+}
+
 // Form validation and submission handling
 document.addEventListener('DOMContentLoaded', () => {
     const purchaseForm = document.getElementById('purchaseForm');
