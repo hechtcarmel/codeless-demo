@@ -102,6 +102,7 @@ main {
     transform: translateZ(30px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .scroll-button:hover {

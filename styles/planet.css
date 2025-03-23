@@ -424,6 +424,7 @@ html {
     color: var(--text-color);
     font-size: 1.1rem;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .info-label:hover, .price-label:hover {
