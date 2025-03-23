@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saturn - Cosmic Real Estate</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/planet.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+                <h1>Cosmic Real Estate</h1>
+            </a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="mars.html">Mars</a></li>
+                <li><a href="jupiter.html">Jupiter</a></li>
+                <li><a href="saturn.html" class="active">Saturn</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="planet-detail">
+            <div class="planet-hero">
+                <img src="../images/saturn.jpg" alt="Saturn" loading="lazy">
+                <h2>Saturn</h2>
+                <p class="price">$3.8 Billion</p>
+            </div>
+
+            <div class="planet-info">
+                <section class="description">
+                    <h3>About Saturn</h3>
+                    <p>Saturn, the jewel of our solar system, is famous for its spectacular ring system. This gas giant offers a unique opportunity to own one of the most visually stunning planets in our solar system.</p>
+                </section>
+
+                <section class="price-label">
+                    <div class="amount">Price: $3.8 Billion</div>
+                </section>
+
+                <section class="features">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Diameter: 116,460 km</li>
+                        <li>Surface Area: 42.7 billion km²</li>
+                        <li>Gravity: 1.065g</li>
+                        <li>Atmosphere: Hydrogen and Helium</li>
+                        <li>Notable Feature: Ring System</li>
+                    </ul>
+                </section>
+
+                <section class="purchase-form">
+                    <h3>Purchase Saturn</h3>
+                    <form id="purchaseForm">
+                        <div class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="payment">Payment Method:</label>
+                            <select id="payment" name="payment" required>
+                                <option value="">Select payment method</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="crypto">Cryptocurrency</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button">Purchase Saturn</button>
+                    </form>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cosmic Real Estate. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="../js/saturn.js"></script>
+    <script src="../js/interactive.js"></script>
+</body>
+</html> 
