@@ -14,6 +14,7 @@ document.title = `${planet.name} - Planet Details`;
 const planetImage = document.getElementById('planetImage');
 const planetName = document.getElementById('planetName');
 const planetPrice = document.getElementById('planetPrice');
+const planetPriceLabel = document.getElementById('planetPriceLabel');
 const planetDescription = document.getElementById('planetDescription');
 const planetFeatures = document.getElementById('planetFeatures');
 const purchaseForm = document.getElementById('purchaseForm');
@@ -27,6 +28,7 @@ const modalClose = document.querySelector('.modal-close');
 // Populate the HTML with planet data
 planetName.textContent = planet.name;
 planetPrice.textContent = planet.price;
+planetPriceLabel.innerHTML = '<span style="font-weight: bold; text-decoration: underline;">Price:</span>' + ' ' +planet.price;
 planetDescription.innerHTML = planet.description;
 
 // Create and append features list
