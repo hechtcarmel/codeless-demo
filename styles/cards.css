@@ -1,0 +1,89 @@
+/* Planet Cards */
+.planet-card {
+    background: var(--card-background);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(122, 162, 247, 0.1);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    height: 100%;
+}
+
+.planet-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.planet-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    background: var(--card-hover);
+}
+
+.planet-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.planet-card:hover img {
+    transform: scale(1.05);
+}
+
+.planet-card h3 {
+    margin: 1rem 1rem 0.5rem;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.planet-card p {
+    margin: 0 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    flex-grow: 1;
+}
+
+/* Planet Grid */
+.planet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.featured-planets {
+    margin-top: 3rem;
+}
+
+.featured-planets h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Planet Detail Card */
+.planet-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--card-background);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(122, 162, 247, 0.1);
+}
+
+/* Responsive Cards */
+@media (max-width: 768px) {
+    .planet-grid {
+        grid-template-columns: 1fr;
+    }
+} 

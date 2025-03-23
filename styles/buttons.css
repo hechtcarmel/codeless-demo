@@ -1,0 +1,79 @@
+/* Base Button Styles */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    width: calc(100% - 3rem);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background-color: #e85d6f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(247, 118, 142, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* Scroll Button */
+.scroll-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.scroll-button:hover {
+    background-color: transparent;
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.scroll-button svg {
+    transition: transform 0.3s ease;
+}
+
+.scroll-button:hover svg {
+    transform: translateY(2px);
+}
+
+/* Form Buttons */
+.form-group button.cta-button {
+    width: 100%;
+    margin: 1rem 0 0;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-group button.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.form-group button.cta-button:active {
+    transform: translateY(0);
+} 

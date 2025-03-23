@@ -4,7 +4,7 @@ const PLANET_DATA = {
         name: 'Mars',
         price: '$1.2 Billion',
         imageUrl: 'images/mars.jpg',
-        description: 'Mars, the Red Planet, offers a unique opportunity for interplanetary real estate. With its distinctive red surface and potential for future colonization, Mars represents the next frontier in space exploration.',
+        description: 'Mars, the ReRRd Planet, offers a unique opportunity for interplanetary real estate. With its distinctive red surface and potential for future colonization, Mars represents the next frontier in space exploration.',
         features: [
             'Two moons: Phobos and Deimos',
             'Thin atmosphere primarily composed of CO2',
