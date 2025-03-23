@@ -1,16 +1,33 @@
 /* Planet Cards */
 .planet-card {
     background: var(--card-background);
-    border-radius: 16px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     border: 1px solid rgba(122, 162, 247, 0.1);
     display: flex;
     flex-direction: column;
     cursor: pointer;
     height: 100%;
+}
+
+.planet-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(122, 162, 247, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.planet-card:hover::before {
+    opacity: 1;
 }
 
 .planet-card a {
@@ -22,8 +39,8 @@
 }
 
 .planet-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
     background: var(--card-hover);
 }
 
@@ -31,24 +48,84 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.9);
 }
 
 .planet-card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    filter: brightness(1);
 }
 
 .planet-card h3 {
-    margin: 1rem 1rem 0.5rem;
+    margin: 1.5rem 1.5rem 0.5rem;
     color: var(--secondary-color);
     font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.planet-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.planet-card:hover h3::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .planet-card p {
-    margin: 0 1rem;
+    margin: 0 1.5rem 1.5rem;
     color: var(--text-color);
     opacity: 0.8;
     flex-grow: 1;
+    transition: opacity 0.3s ease;
+}
+
+.planet-card:hover p {
+    opacity: 1;
+}
+
+.planet-card .cta-button {
+    margin: 0 1.5rem 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.planet-card .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+}
+
+.planet-card:hover .cta-button {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(247, 118, 142, 0.3);
+}
+
+.planet-card:hover .cta-button::before {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 /* Planet Grid */
@@ -56,6 +133,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+    perspective: 1000px;
 }
 
 .featured-planets {
@@ -68,6 +146,20 @@
     color: var(--secondary-color);
     font-size: 2.5rem;
     font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.featured-planets h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
 }
 
 /* Planet Detail Card */
@@ -75,15 +167,25 @@
     max-width: 1000px;
     margin: 0 auto;
     background: var(--card-background);
-    border-radius: 16px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(122, 162, 247, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planet-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive Cards */
 @media (max-width: 768px) {
     .planet-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .planet-card:hover {
+        transform: translateY(-4px) scale(1.01);
     }
 } 
