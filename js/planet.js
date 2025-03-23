@@ -29,6 +29,12 @@ const modalPlanetName = document.getElementById('modalPlanetName');
 const modalEmail = document.getElementById('modalEmail');
 const modalClose = document.querySelector('.modal-close');
 
+// Highlight current planet in navigation
+const currentPlanetLink = document.querySelector(`a[href="planet.html?planet=${planetId}"]`);
+if (currentPlanetLink) {
+    currentPlanetLink.classList.add('active');
+}
+
 // Populate the HTML with planet data
 planetName.textContent = planet.name;
 planetPrice.textContent = planet.price;
