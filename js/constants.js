@@ -1,11 +1,9 @@
-import { BASE_PATH } from './config.js';
-
 // Planet data configuration
 const PLANET_DATA = {
     mars: {
         name: 'Mars',
         price: '$1.2 Billion',
-        imageUrl: `${BASE_PATH}/images/mars.jpg`,
+        imageUrl: 'images/mars.jpg',
         description: 'Mars, the Red Planet, offers a unique opportunity for interplanetary real estate. With its distinctive red surface and potential for future colonization, Mars represents the next frontier in space exploration.',
         features: [
             'Two moons: Phobos and Deimos',
@@ -18,7 +16,7 @@ const PLANET_DATA = {
     jupiter: {
         name: 'Jupiter',
         price: '$2.5 Billion',
-        imageUrl: `${BASE_PATH}/images/jupiter.jpg`,
+        imageUrl: 'images/jupiter.jpg',
         description: 'Jupiter, the largest planet in our solar system, is a gas giant with a stunning array of atmospheric features. This massive planet offers a unique opportunity to own a piece of cosmic history.',
         features: [
             'The Great Red Spot storm',
@@ -31,7 +29,7 @@ const PLANET_DATA = {
     saturn: {
         name: 'Saturn',
         price: '$3.8 Billion',
-        imageUrl: `${BASE_PATH}/images/saturn.jpg`,
+        imageUrl: 'images/saturn.jpg',
         description: 'Saturn, the jewel of our solar system, is famous for its spectacular ring system. This gas giant offers a unique opportunity to own one of the most visually stunning planets in our solar system.',
         features: [
             'Spectacular ring system',
