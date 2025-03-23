@@ -4,15 +4,6 @@ import { handleFormSubmit } from './utils.js';
 // Get planet data
 const planetData = PLANET_DATA.mars;
 
-// Image loading
-const heroImage = document.querySelector('.planet-hero img');
-if (heroImage) {
-    heroImage.src = planetData.imageUrl;
-    heroImage.onload = () => {
-        heroImage.classList.add('loaded');
-    };
-}
-
 // Form handling
 const purchaseForm = document.querySelector('.purchase-form');
 if (purchaseForm) {
