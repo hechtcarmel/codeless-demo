@@ -27,7 +27,7 @@ const modalClose = document.querySelector('.modal-close');
 // Populate the HTML with planet data
 planetName.textContent = planet.name;
 planetPrice.textContent = planet.price;
-planetDescription.textContent = planet.description;
+planetDescription.innerHTML = planet.description;
 
 // Create and append features list
 planet.features.forEach(feature => {
