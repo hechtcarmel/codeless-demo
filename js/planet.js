@@ -15,9 +15,13 @@ const planetImage = document.getElementById('planetImage');
 const planetName = document.getElementById('planetName');
 const planetPrice = document.getElementById('planetPrice');
 const planetPriceLabel = document.getElementById('planetPriceLabel');
+const planetSizeLabel = document.getElementById('planetSizeLabel');
+const planetDistanceLabel = document.getElementById('planetDistanceLabel');
 const planetDescription = document.getElementById('planetDescription');
 const planetFeatures = document.getElementById('planetFeatures');
 const purchaseForm = document.getElementById('purchaseForm');
+const viewGalleryBtn = document.getElementById('viewGalleryBtn');
+const scheduleTourBtn = document.getElementById('scheduleTourBtn');
 
 // Get modal elements
 const successModal = document.getElementById('successModal');
@@ -28,7 +32,9 @@ const modalClose = document.querySelector('.modal-close');
 // Populate the HTML with planet data
 planetName.textContent = planet.name;
 planetPrice.textContent = planet.price;
-planetPriceLabel.innerHTML = '<span style="font-weight: bold; text-decoration: underline;">Price:</span>' + ' ' +planet.price;
+planetPriceLabel.innerHTML = '<span style="font-weight: bold; text-decoration: underline;">Price:</span>' + ' ' + planet.price;
+planetSizeLabel.innerHTML = '<span style="font-weight: bold; text-decoration: underline;">Size:</span>' + ' ' + planet.size;
+planetDistanceLabel.innerHTML = '<span style="font-weight: bold; text-decoration: underline;">Distance from Earth:</span>' + ' ' + planet.distance;
 planetDescription.innerHTML = planet.description;
 
 // Create and append features list
@@ -99,4 +105,13 @@ purchaseForm.addEventListener('submit', (e) => {
     
     // Reset form
     purchaseForm.reset();
+});
+
+// Add button click handlers
+viewGalleryBtn.addEventListener('click', () => {
+    alert('Photo gallery feature coming soon! In the meantime, enjoy our main image.');
+});
+
+scheduleTourBtn.addEventListener('click', () => {
+    alert('Virtual tour scheduling system is under development. Please check back later!');
 }); 
