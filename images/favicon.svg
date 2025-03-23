@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Star -->
-    <path d="M16 2L19.09 11.26L29 12.27L21 17.14L24.09 26.4L16 21.53L7.91 26.4L11 17.14L3 12.27L12.91 11.26L16 2Z" fill="#7AA2F7"/>
-    <!-- House -->
-    <path d="M16 8L24 14V28H8V14L16 8Z" fill="#F7768E"/>
-    <path d="M16 8L8 14V28H24V14L16 8Z" fill="#F7768E"/>
-    <path d="M16 8V28" stroke="#1A1B26" stroke-width="2"/>
-</svg> 
