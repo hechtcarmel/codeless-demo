@@ -1,3 +1,5 @@
+import { FORM_VALIDATION } from './constants.js';
+
 /**
  * Validates an email address
  * @param {string} email - The email address to validate

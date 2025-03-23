@@ -26,6 +26,23 @@ if (planetData) {
     });
 }
 
+// Image loading handling
+const planetImages = document.querySelectorAll('.planet-hero img');
+planetImages.forEach(img => {
+    img.classList.add('loading');
+    
+    img.addEventListener('load', () => {
+        img.classList.remove('loading');
+        img.classList.add('loaded');
+    });
+    
+    img.addEventListener('error', () => {
+        img.classList.remove('loading');
+        img.classList.add('error');
+        console.error(`Failed to load image: ${img.src}`);
+    });
+});
+
 // Form validation and submission handling
 document.addEventListener('DOMContentLoaded', () => {
     const purchaseForm = document.getElementById('purchaseForm');

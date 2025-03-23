@@ -1,5 +1,22 @@
 // Interactive features for planet pages
 document.addEventListener('DOMContentLoaded', () => {
+    // Image loading handling
+    const planetImages = document.querySelectorAll('.planet-hero img');
+    planetImages.forEach(img => {
+        img.classList.add('loading');
+        
+        img.addEventListener('load', () => {
+            img.classList.remove('loading');
+            img.classList.add('loaded');
+        });
+        
+        img.addEventListener('error', () => {
+            img.classList.remove('loading');
+            img.classList.add('error');
+            console.error(`Failed to load image: ${img.src}`);
+        });
+    });
+
     // Feature list hover effect
     const featureItems = document.querySelectorAll('.features li');
     featureItems.forEach(item => {
