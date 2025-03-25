@@ -1,19 +1,28 @@
 // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    const nav = document.querySelector('nav ul');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
     
-    mobileMenuButton.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        mobileMenuButton.classList.toggle('active');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking outside
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-            nav.classList.remove('active');
-            mobileMenuButton.classList.remove('active');
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
         }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
     });
 
     // Smooth scroll for anchor links
