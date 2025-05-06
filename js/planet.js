@@ -115,7 +115,17 @@ purchaseForm.addEventListener('submit', (e) => {
 
 // Add button click handlers
 viewGalleryBtn.addEventListener('click', () => {
-    alert('Photo gallery feature coming soon! In the meantime, enjoy our main image.');
+    // alert('Photo gallery feature coming soon! In the meantime, enjoy our main image.');
+    window._tfa = window._tfa || [];
+    window._tfa.push({
+        notify: 'event',
+        name: 'VIEW_GALLERY',
+        id: 1056846, // Assuming this is the correct constant ID
+        revenue: 20,
+        currency: '$'
+    });
+    // Optionally, keep an alert or add other UI feedback
+    alert('Tracking event sent! Gallery feature coming soon.');
 });
 
 scheduleTourBtn.addEventListener('click', () => {
