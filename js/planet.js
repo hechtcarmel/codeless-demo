@@ -130,4 +130,37 @@ viewGalleryBtn.addEventListener('click', () => {
 
 scheduleTourBtn.addEventListener('click', () => {
     alert('Virtual tour scheduling system is under development. Please check back later!');
-}); 
+});
+
+// Event listeners for new buttons on planet.html
+const telescopeButton = document.getElementById('telescopeButton');
+if (telescopeButton) {
+    telescopeButton.addEventListener('click', () => {
+        alert('Telescope button clicked! Enhancing gallery view...');
+    });
+}
+
+const bookTourHebrew = document.getElementById('bookTourHebrew');
+if (bookTourHebrew) {
+    bookTourHebrew.addEventListener('click', () => {
+        alert('כפתור "הזמן סיור" נלחץ!');
+    });
+}
+
+// Changed ID from requestInfoForm to requestInfoFormAction
+const requestInfoFormAction = document.getElementById('requestInfoFormAction');
+if (requestInfoFormAction) {
+    requestInfoFormAction.addEventListener('click', () => {
+        alert('Request Detailed Info (form area) button clicked! We will send you more details shortly.');
+    });
+}
+
+// Changed ID from requestInfoDescription to requestInfoDescriptionBlock
+const requestInfoDescriptionBlock = document.getElementById('requestInfoDescriptionBlock');
+if (requestInfoDescriptionBlock) {
+    requestInfoDescriptionBlock.addEventListener('click', () => {
+        alert('Request Detailed Info (description area) button clicked! Information packet is on its way.');
+    });
+}
+
+// The "View All Planets" button is an anchor, so it doesn't need a JS handler for basic navigation. 

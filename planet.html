@@ -200,6 +200,7 @@
                 <div class="description">
                     <h3>About This Planet</h3>
                     <p id="planetDescription"></p>
+                    <button type="button" class="cta-button button-hover" id="requestInfoDescriptionBlock" style="margin-top: 1rem; width: auto;">Request Detailed Info</button>
                     <div class="info-labels">
                         <label id="planetSizeLabel" class="info-label"></label>
                         <label id="planetPriceLabel" class="price-label"></label>
@@ -219,9 +220,26 @@
                         </div>
                         <button type="submit" class="cta-button button-hover">Submit Offer</button>
                     </form>
-                    <div class="button-group">
-                        <button id="viewGalleryBtn" class="cta-button button-hover">View Photo Gallery</button>
-                        <button id="scheduleTourBtn" class="cta-button button-hover">Schedule Virtual Tour</button>
+                    <button type="button" class="cta-button button-hover" id="requestInfoFormAction" style="margin-top: 1rem;">Request Detailed Info</button>
+
+                    <div class="button-group" style="margin-top: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                            <button id="viewGalleryBtn" class="cta-button button-hover" style="flex-grow: 1;">View Photo Gallery</button>
+                            <button class="image-button" id="telescopeButton" title="Enhanced Gallery View" style="background: none; border: none; cursor: pointer; padding: 0;">
+                                <img src="images/telescope.png" alt="More Gallery Options" style="width: 36px; height: 36px; vertical-align: middle;">
+                            </button>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                            <button id="scheduleTourBtn" class="cta-button button-hover" style="flex-grow: 1; min-width: 200px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16" style="margin-right: 8px;">
+                                    <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                </svg>
+                                Schedule Virtual Tour
+                            </button>
+                            <button id="bookTourHebrew" class="cta-button button-hover hebrew-button" title="הזמן סיור" style="flex-grow: 1; min-width: 200px;">הזמן סיור</button>
+                        </div>
+                        <a href="index.html#featured-planets" class="cta-button button-hover" id="viewAllPlanetsPlanetPage">View All Planets</a>
                     </div>
                 </div>
             </div>

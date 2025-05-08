@@ -247,12 +247,87 @@
         <section class="hero">
             <h2>Your Gateway to the Stars</h2>
             <p>Discover the future of real estate beyond Earth. Explore our exclusive collection of celestial properties.</p>
-            <a href="#featured-planets" class="scroll-button">
-                <span>Explore Properties</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
+
+            <!-- Joke Button - Prominent Card Style -->
+            <div style="margin-bottom: 2rem; text-align: center; display: flex; justify-content: center;">
+                <button class="hero-action-card hero-action-card-joke" id="tellJokeButton">
+                    <div class="hero-action-card-icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-lightbulb-fill" viewBox="0 0 16 16">
+                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </div>
+                    <div class="hero-action-card-text-container">
+                        <span class="hero-action-card-title joke-card-title">Tell me a Joke!</span>
+                        <span class="hero-action-card-subtitle joke-card-subtitle">Need a laugh? Click here.</span>
+                    </div>
+                </button> 
+            </div>
+
+            <!-- Main Call to Action -->
+            <div class="hero-actions-wrapper main-actions">
+                <div class="hero-button-row">
+                    <a href="#featured-planets" class="scroll-button">
+                        <span>Explore Properties</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <button class="image-button" id="rocketButton" title="Blast Off!" style="background: none; border: none; cursor: pointer; padding: 0;">
+                        <img src="images/rocket.png" alt="Explore More" style="width: 48px; height: 48px; vertical-align: middle;">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Secondary Actions -->
+            <div class="hero-actions-wrapper secondary-actions">
+                <div class="hero-button-row">
+                    <button class="hero-action-card" id="learnMoreVision">
+                        <div class="hero-action-card-icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                                <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
+                            </svg>
+                        </div>
+                        <div class="hero-action-card-text-container">
+                            <span class="hero-action-card-title">Our Vision</span>
+                            <span class="hero-action-card-subtitle">Explore our mission</span>
+                        </div>
+                    </button>
+                    <a href="planet.html?planet=mars" class="hero-action-card" id="discoverMarsLink">
+                        <div class="hero-action-card-icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-rocket-takeoff" viewBox="0 0 16 16">
+                                <path d="M9.752 6.139C9.476 6.415 9.069 6.68 8.656 6.91c-.776.432-1.604.833-2.335 1.158L4.5 9.5l.003-.046s.006-.09.007-.131c.002-.065.003-.119.003-.162.002-.33.002-.74-.045-1.142L3.354 3.13c-.054-.46-.115-.83-.179-1.113C3.108 1.74 3.054 1.51 3.003 1.302 2.95 1.086 2.866.75 2.705.432c-.18-.354-.286-.598-.286-.787C2.419 0 2.085 0 2.085 0l-.012.003L1.13 1.476l-.43-.43-.003.003c0 .113.066.217.15.307.083.09.19.154.316.19C1.328 2.001 1.529 2 1.69 2c.15 0 .278.003.393.009.126.007.242.021.345.041l.003.001c.125.024.273.06.43.107.18.053.383.122.606.204.218.08.458.184.72.306.256.12.523.266.804.43l.002.001.004.002c.086.051.179.109.276.173.093.062.198.134.308.214l.001.001c.207.15.428.316.657.49.229.174.468.362.712.562.24.198.484.41.726.635.237.222.473.46.702.708.228.247.453.51.667.79A10.901 10.901 0 0 1 11.3 12.19c.01.01.02.02.03.03.076.086.16.18.252.28.11.122.226.247.343.375.118.127.238.252.357.372s.238.237.352.345a6.45 6.45 0 0 1 .333.314c.11.104.216.2.315.29s.187.17.269.24c.084.073.159.135.225.186.07.055.131.1.182.135.033.023.06.043.082.06.023.018.047.037.075.057.028.02.057.038.087.058l.002.001c.023.015.04.027.052.035.003.002.004.003.004.003a.493.493 0 0 1 .036.022c.02.01.038.016.053.02l.001.001c.015.004.027.006.036.007.002.001.002.001.003.001.008.001.015.002.02.003q.008.001.018.002c.004 0 .007 0 .009.001.006 0 .01.001.012.001.003 0 .003.001.003.001s0 .001.001.001h.001c.002 0 .003 0 .003.001 0 .001.001.001.002.001l.002.001c.002 0 .002 0 .002.001l.001.001c.002 0 .002 0 .002.001 0 .001.001.001.001.001v.001c0 .001 0 .001.001.001a.19.19 0 0 1 .001.002c0 .001 0 .001.001.001a1.65 1.65 0 0 1 .001.008.57.57 0 0 1-.007.074c-.002.008-.002.016-.002.021a.778.778 0 0 1-.03.133c-.01.043-.015.083-.018.12-.002.023-.002.04-.003.052a.5.5 0 0 1-.001.01l-.002.024c-.008.084-.02.173-.04.267l-.001.003c-.026.096-.057.197-.096.303-.04.106-.087.218-.14.336-.053.118-.112.24-.178.367-.067.127-.138.258-.216.39-.077.133-.158.268-.243.405-.085.138-.173.278-.266.418-.093.14-.188.28-.286.418a7.95 7.95 0 0 1-.308.413c-.107.13-.216.255-.326.375-.11.12-.22.235-.33.345-.112.11-.226.214-.338.312-.113.098-.226.19-.336.275a10.91 10.91 0 0 1-1.018.69c-.123.076-.244.145-.362.208-.118.063-.234.12-.348.17-.115.05-.228.094-.338.132-.11.038-.218.07-.322.095l-.006.002c-.102.024-.2.04-.292.052-.09.01-.177.015-.258.017a.497.497 0 0 1-.05.002c-.012 0-.022 0-.03 0-.008 0-.017-.001-.026-.002l-.002-.001c-.01 0-.018 0-.025-.001a.23.23 0 0 1-.042-.004c-.01 0-.02-.002-.03-.003-.01-.002-.02-.003-.028-.005L12 14.5l.042.002c0-.002.003-.002.006-.002C12.058 14.5 12.314 14 13.028 14c.714 0 1.007.5 1.018.502.004.001.006.001.006.002.002.001.003.001.003.001.014.006.014.006.014.006s.002.001.005.002a.621.621 0 0 0 .02.004c.01.003.02.005.03.007.016.004.034.006.055.006.022.001.047 0 .073-.002.025-.001.05-.003.075-.004.025-.002.05-.003.076-.004.025-.001.05-.002.075-.003.05-.002.1-.003.148-.003h.002c.048 0 .097.001.144.002l.002.001c.047.001.093.002.138.002.044 0 .087.001.128.001.042 0 .08-.001.116-.002.037-.001.07-.001.1-.001.032 0 .06-.001.085-.001.026 0 .05-.001.072-.001.022 0 .044 0 .065-.001h.001c.02 0 .04 0 .06.001l.002.001c.04.002.082.003.126.004.045.001.09.001.135.001s.09-.001.135-.002a.03.03 0 0 0 .019-.003c.028-.002.055-.004.08-.006.026-.003.05-.006.073-.009.022-.003.044-.006.064-.01.02-.003.038-.007.055-.01.016-.003.03-.007.044-.01.012-.003.024-.006.035-.01.01-.003.018-.006.026-.01.008-.003.014-.006.02-.01.002-.001.003-.002.004-.003.003-.002.005-.004.006-.006.001-.002.002-.003.002-.005a.025.025 0 0 0 .003-.008.28.28 0 0 0 .004-.012.112.112 0 0 0 .002-.008.07.07 0 0 0 .002-.007.025.025 0 0 0 .001-.008c0-.002 0-.004-.001-.006l-.001-.003c-.001-.002-.001-.004-.002-.005 0-.002-.001-.004-.001-.005v-.002a.79.79 0 0 0-.004-.022.23.23 0 0 0-.005-.017.313.313 0 0 0-.007-.02.53.53 0 0 0-.01-.022.283.283 0 0 0-.01-.017.29.29 0 0 0-.012-.017c-.004-.005-.008-.009-.012-.013a.247.247 0 0 0-.015-.015.427.427 0 0 0-.017-.015.277.277 0 0 0-.018-.014.242.242 0 0 0-.02-.015c-.007-.005-.015-.009-.022-.012a.19.19 0 0 0-.022-.012l-.002-.001a.21.21 0 0 0-.025-.013.26.26 0 0 0-.028-.012.167.167 0 0 0-.03-.01.12.12 0 0 1-.01-.002L9.752 6.139zm.574-4.942c.03-.114.09-.22.183-.318.092-.098.2-.168.318-.195.12-.027.248-.027.37.003.12.03.23.09.318.183.088.092.145.2.173.318.027.117.027.24-.003.36s-.09.23-.183.318c-.092.088-.2.145-.318.173-.117.027-.24.027-.36-.003a.48.48 0 0 1-.318-.183.493.493 0 0 1-.183-.318.481.481 0 0 1 .003-.36zm2.346-2.346a.493.493 0 0 1 .708 0l1.414 1.414a.493.493 0 1 1-.707.708L12 1.13l-1.414 1.414a.493.493 0 1 1-.707-.708L11.3 1.13zM13 3.5c0-.276.224-.5.5-.5s.5.224.5.5v1c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-1z"/>
+                                <path d="M5.5 11.5A1.5 1.5 0 0 0 7 10h1a1.5 1.5 0 0 0 0 3H7a1.5 1.5 0 0 0-1.5-1.5zM12 11.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .5-.5z"/>
+                            </svg>
+                        </div>
+                        <div class="hero-action-card-text-container">
+                            <span class="hero-action-card-title">Discover Mars</span>
+                            <span class="hero-action-card-subtitle">The Red Planet awaits</span>
+                        </div>
+                    </a>
+                    <a href="#featured-planets" class="hero-action-card" id="viewAllPlanetsHeroLink">
+                        <div class="hero-action-card-icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
+                                <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+                            </svg>
+                        </div>
+                        <div class="hero-action-card-text-container">
+                            <span class="hero-action-card-title">View All Planets</span>
+                            <span class="hero-action-card-subtitle">See our full catalog</span>
+                        </div>
+                    </a>
+                    <button class="hero-action-card hebrew-button" id="contactUsHebrew" title="צור קשר">
+                        <div class="hero-action-card-icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                            </svg>
+                        </div>
+                        <div class="hero-action-card-text-container">
+                            <span class="hero-action-card-title">צור קשר</span>
+                            <span class="hero-action-card-subtitle">Get in touch with us</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
         </section>
 
         <section id="featured-planets" class="featured-planets">
@@ -265,6 +340,11 @@
                         <p>The Red Planet - Your next home away from Earth. Experience the thrill of living on Mars with our premium properties.</p>
                         <span class="cta-button">View Details</span>
                     </a>
+                    <button class="svg-icon-button favorite-button" title="Add to Favorites">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                    </button>
                 </article>
 
                 <article class="planet-card">
@@ -274,6 +354,11 @@
                         <p>The Giant Planet - A gas giant with endless possibilities. Discover unique floating properties in Jupiter's atmosphere.</p>
                         <span class="cta-button">View Details</span>
                     </a>
+                    <button class="svg-icon-button favorite-button" title="Add to Favorites">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                    </button>
                 </article>
 
                 <article class="planet-card">
@@ -283,6 +368,11 @@
                         <p>The Ringed Planet - Beauty beyond imagination. Live among the most spectacular rings in our solar system.</p>
                         <span class="cta-button">View Details</span>
                     </a>
+                    <button class="svg-icon-button favorite-button" title="Add to Favorites">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                    </button>
                 </article>
             </div>
         </section>

@@ -179,6 +179,45 @@
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
+/* SVG Icon Button (e.g., Favorite Button) */
+.svg-icon-button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem; /* Adjust as needed */
+    right: 1rem; /* Adjust as needed */
+    z-index: 5; /* Ensure it's above the card image/content */
+    color: var(--text-color); /* Default color, can be white if on dark images */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.svg-icon-button svg {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    display: block;
+}
+
+.svg-icon-button:hover {
+    color: var(--accent-color); /* Highlight color on hover */
+    transform: scale(1.1);
+}
+
+.svg-icon-button.active svg path {
+    fill: var(--accent-color); /* Filled heart when active */
+    stroke: var(--accent-color); /* Ensure border matches if using an outlined heart initially */
+}
+
+/* Adjust favorite button color if cards have dark images and text-color is not visible enough */
+.planet-card .favorite-button {
+    color: rgba(255, 255, 255, 0.8); /* White with some transparency for dark images */
+}
+
+.planet-card .favorite-button:hover {
+    color: var(--accent-color); /* Accent color on hover */
+}
+
 /* Responsive Cards */
 @media (max-width: 768px) {
     .planet-grid {
