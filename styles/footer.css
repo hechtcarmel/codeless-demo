@@ -5,4 +5,21 @@ footer {
     padding: 2rem;
     margin-top: 4rem;
     border-top: 1px solid rgba(122, 162, 247, 0.1);
+}
+
+.footer-home-button {
+    /* Inherits .cta-button styles */
+    /* We can override or add specific styles here if needed */
+    background-color: var(--secondary-color); /* Example: make it match secondary color */
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    margin: 0 auto 1rem auto; /* Center it if it's the only element in its div */
+    display: inline-block; /* To respect margin auto and padding */
+    width: auto; /* Override cta-button width if it's 100% */
+    max-width: 200px; /* Prevent it from being too wide */
+}
+
+.footer-home-button:hover {
+    background-color: var(--accent-color);
+    color: white;
 } 
