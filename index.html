@@ -257,10 +257,7 @@
     <script src="https://assets.prd.heyflow.com/builder/widget/latest/webview.js"></script>
 </head>
 <body>
-<!-- Container for Codeless Events -->
-<div id="taboola-codeless-events-container">
-    <iframe id="taboola-codeless-events" src="http://localhost:3000/codeless-site/codeless/codeless-events.html"></iframe>
-</div>
+
 <!-- Drag overlay -->
 <div id="drag-overlay"></div>
     <header>
@@ -426,23 +423,5 @@
         </div>
         <p>&copy; 2024 Cosmic Real Estate. All rights reserved.</p>
     </footer>
-
-    <script src="/private/codeless-site/js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/private/codeless-site/codeless/codeless-events-iframe-setup.js"></script>
-    <script>
-        const accountId = '218tests';
-
-        sessionStorage.setItem('session', localStorage.getItem('session'));
-        sessionStorage.setItem('taboola-account-id', accountId);
-
-        const cssFilePath = 'http://localhost:3000/private/codeless-site/codeless/codeless-events.css';
-        const jsFilePath = 'http://localhost:3000/private/codeless-site/codeless/codeless-events.js';
-        const appConfigsHost = 'http://localhost:3000';
-
-        const iframe = document.getElementById('taboola-codeless-events');
-        setupIframe(document.body, cssFilePath, jsFilePath, appConfigsHost);
-    </script>
-    <script src="/private/codeless-site/codeless/codeless-events.js"></script>
 </body>
 </html> 
