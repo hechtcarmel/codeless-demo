@@ -220,22 +220,49 @@
       '//cdn.taboola.com/libtrc/unip/1056846/tfa.js',
       'tb_tfa_script');
     </script>
-    <!-- Taboola Pixel Code -->
-    <script type='text/javascript'>
-        window._tfa = window._tfa || [];
-        window._tfa.push({notify: 'event', name: 'page_view', id: 1333445});
-        !function (t, f, a, x) {
-            if (!document.getElementById(x)) {
-                t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
-            }
-        }(document.createElement('script'),
-        document.getElementsByTagName('script')[0],
-        '//cdn.taboola.com/libtrc/unip/1333445/tfa.js',
-        'tb_tfa_script');
-    </script>
     <!-- End of Taboola Pixel Code -->
+    
+    <!-- Outbrain Pixel Code -->
+    <script data-obct type = "text/javascript">
+      /** DO NOT MODIFY THIS CODE**/
+      !function(_window, _document) {
+        var OB_ADV_ID = '0021f190927875c0ed4310ab87189a0f0b';
+        if (_window.obApi) {
+          var toArray = function(object) {
+            return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];
+          };
+          _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
+          return;
+        }
+        var api = _window.obApi = function() {
+          api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);
+        };
+        api.version = '1.1';
+        api.loaded = true;
+        api.marketerId = OB_ADV_ID;
+        api.queue = [];
+        var tag = _document.createElement('script');
+        tag.async = true;
+        tag.src = '//amplify.outbrain.com/cp/obtp.js';
+        tag.type = 'text/javascript';
+        var script = _document.getElementsByTagName('script')[0];
+        script.parentNode.insertBefore(tag, script);
+      }(window, document);
+
+      obApi('track', 'PAGE_VIEW');
+    </script>
+    <!-- End of Outbrain Pixel Code -->
+    
+    <!-- Heyflow Integration -->
+    <script src="https://assets.prd.heyflow.com/builder/widget/latest/webview.js"></script>
 </head>
 <body>
+<!-- Container for Codeless Events -->
+<div id="taboola-codeless-events-container">
+    <iframe id="taboola-codeless-events" src="http://localhost:3000/codeless-site/codeless/codeless-events.html"></iframe>
+</div>
+<!-- Drag overlay -->
+<div id="drag-overlay"></div>
     <header>
         <nav>
             <a href="index.html" class="logo">
@@ -261,7 +288,6 @@
             <h2>Your Gateway to the Stars</h2>
             <p>Discover the future of real estate beyond Earth. Explore our exclusive collection of celestial properties.</p>
 
-            <!-- Joke Button - Prominent Card Style -->
             <div style="margin-bottom: 2rem; text-align: center; display: flex; justify-content: center;">
                 <button class="hero-action-card hero-action-card-joke" id="tellJokeButton">
                     <div class="hero-action-card-icon-container">
@@ -276,7 +302,6 @@
                 </button> 
             </div>
 
-            <!-- Main Call to Action -->
             <div class="hero-actions-wrapper main-actions">
                 <div class="hero-button-row">
                     <a href="#featured-planets" class="scroll-button">
@@ -291,7 +316,6 @@
                 </div>
             </div>
 
-            <!-- Secondary Actions -->
             <div class="hero-actions-wrapper secondary-actions">
                 <div class="hero-button-row">
                     <button class="hero-action-card" id="learnMoreVision">
@@ -391,6 +415,11 @@
         </section>
     </main>
 
+    <!-- Heyflow Widget -->
+    <section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; text-align: center;">
+        <heyflow-wrapper flow-id="JzbiGF9jleekMBB0ffwW" dynamic-height scroll-up-on-navigation style-config='{"width":"800px"}'></heyflow-wrapper>
+    </section>
+
     <footer>
         <div style="margin-bottom: 1rem;">
             <a href="index.html" class="cta-button footer-home-button" id="footerHomeButton">Home</a>
@@ -398,6 +427,22 @@
         <p>&copy; 2024 Cosmic Real Estate. All rights reserved.</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="/private/codeless-site/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/private/codeless-site/codeless/codeless-events-iframe-setup.js"></script>
+    <script>
+        const accountId = '218tests';
+
+        sessionStorage.setItem('session', localStorage.getItem('session'));
+        sessionStorage.setItem('taboola-account-id', accountId);
+
+        const cssFilePath = 'http://localhost:3000/private/codeless-site/codeless/codeless-events.css';
+        const jsFilePath = 'http://localhost:3000/private/codeless-site/codeless/codeless-events.js';
+        const appConfigsHost = 'http://localhost:3000';
+
+        const iframe = document.getElementById('taboola-codeless-events');
+        setupIframe(document.body, cssFilePath, jsFilePath, appConfigsHost);
+    </script>
+    <script src="/private/codeless-site/codeless/codeless-events.js"></script>
 </body>
 </html> 
