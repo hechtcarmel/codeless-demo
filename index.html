@@ -195,10 +195,28 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-
         .center-section {
             display: flex;
             justify-content: center;
+        }
+        .link-button {
+            display:block;
+            margin: 0 1.5rem 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--link-button);
+            color: white;
+            text-decoration: none;
+        }
+
+        .second-link-button
+        {
+            background: var(--secondary-color);
+        }
+
+        .call {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
         }
 
         @media (max-width: 768px) {
@@ -467,6 +485,19 @@
                 <button  class="same-button favorite-button" >
                     Buy Now
                 </button>
+            </div>
+           <div class="center-section">
+                <a class="link-button same-button" href="#" onclick="myFunc();">
+                    Let's Talk
+                    <img alt class="call" src="images/circle-phone-flip.png" />
+                    <br>
+                    <span>Call Me</span>
+                </a>
+                <a class="link-button second-link-button same-button" href="#" onclick="myFunc();">
+                    Don't Call Me
+                    <br>
+                    <span>I Call You</span>
+                </a>
             </div>
         </section>
     </main>
