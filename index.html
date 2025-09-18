@@ -195,30 +195,24 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        .center-section {
-            display: flex;
-            justify-content: center;
+         .additional-section {
+            margin: 4rem auto;
+            max-width: 800px;
+            padding: 2rem;
+            border: 2px solid var(--link-button);
+            border-radius: 12px;
+            background: var(--text-color);
         }
-        .link-button {
-            display:block;
-            margin: 0 1.5rem 1.5rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--link-button);
-            color: white;
-            text-decoration: none;
+        .additional-section h2,  .additional-section h4 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color:  var( --gradient-start);
         }
-
-        .second-link-button
-        {
-            background: var(--secondary-color);
+        .additional-section h4 {
+            font-size: 1rem;
         }
-
-        .call {
-            margin-left: 10px;
-            width: 20px;
-            height: 20px;
-        }
-
+        
         @media (max-width: 768px) {
             .hero {
                 padding: 6rem 1.5rem;
@@ -474,32 +468,24 @@
                 </article>
             </div>
         </section>
-              <section>
-            <div class="center-section">
-                <button  class="same-button favorite-button" >
-                    Buy Now
-                </button>
-                <button  class="same-button favorite-button" >
-                    Same Same But Different
-                </button>
-                <button  class="same-button favorite-button" >
-                    Buy Now
-                </button>
-            </div>
-           <div class="center-section">
-                <a class="link-button same-button" href="#" onclick="myFunc();">
-                    Let's Talk
-                    <img alt class="call" src="images/phone.png" />
-                    <br>
-                    <span>Call Me</span>
-                </a>
-                <a class="link-button second-link-button same-button" href="#" onclick="myFunc();">
-                    Don't Call Me
-                    <br>
-                    <span>I Call You</span>
-                </a>
+         <section class="additional-section">
+            <h2>🧪 Additional Selector Collision Tests</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                    <h4>Test Case 1: Identical Classes</h4>
+                    <button class="test-btn primary-btn same-button">Button A</button>
+                    <button class="test-btn primary-btn same-button">Button B</button>
+                </div>
+
+                <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                    <h4>Test Case 2: Same Structure</h4>
+                    <button class="action-btn same-button submit-btn">Submit Form</button>
+                    <button class="action-btn same-button submit-btn">Register Now</button>
+                </div>
             </div>
         </section>
+    </main>
+
     </main>
 
     <!-- Heyflow Widget -->
